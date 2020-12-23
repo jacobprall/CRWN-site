@@ -5,7 +5,7 @@ export default function CollectionPreview({ title, items }) {
   // performance concern -> filter and map will be called every render
   return (
     <div className="collection-preview">
-      <h1>{title.toUpperCase()}</h1>
+      <h1 className="title">{title.toUpperCase()}</h1>
       <div className="preview">
         {
           items

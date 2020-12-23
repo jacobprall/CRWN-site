@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './menu-item.scss'
 export default function MenuItem({ title, imageUrl, size}) {
   console.log(title)
   return (
