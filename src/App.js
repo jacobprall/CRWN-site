@@ -1,5 +1,5 @@
-import './stylesheets/homepage.scss';
-import HomePage from './homepage/homepage-component'
+import './pages/homepage/homepage.scss';
+import HomePage from './pages/homepage/homepage-component'
 function App() {
   return (
     <div>
