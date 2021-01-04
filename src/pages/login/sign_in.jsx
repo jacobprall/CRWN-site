@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import FormInput from '../../components/form-input/form-input'
+import { CustomButton } from '../../components/custom-button/custom-button.jsx'
+
 export default function SignIn() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -38,7 +40,7 @@ export default function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button>Submit</button>
+        <CustomButton type="submit">Sign In</CustomButton>
       </form>
     </div>
   );
