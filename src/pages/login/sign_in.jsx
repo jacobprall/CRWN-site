@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import FormInput from '../../components/form-input/form-input'
-import { CustomButton } from '../../components/custom-button/custom-button.jsx'
+import FormInput from "../../components/form-input/form-input";
+import { CustomButton } from "../../components/custom-button/custom-button.jsx";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 export default function SignIn() {
   let [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export default function SignIn() {
     else setPassword(value);
   };
   return (
-    <div class="sign-in">
+    <div className="sign-in">
       <h2>I already have an account</h2>
       <span>Sign in wth your email and password</span>
 
@@ -40,7 +41,12 @@ export default function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <CustomButton type="submit">Sign In</CustomButton>
+        <div className="buttons">
+          <CustomButton type="submit">Sign In</CustomButton>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            Sign In With Google{" "}
+          </CustomButton>
+        </div>
       </form>
     </div>
   );
