@@ -3,7 +3,9 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
-export default function Header({ currentUser }) {
+import { connect, shallowEqual, useSelector } from "react-redux";
+
+function Header({ currentUser }) {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -16,7 +18,7 @@ export default function Header({ currentUser }) {
         <Link className="option" to="/Contact">
           CONTACT
         </Link>
-        {currentUser.currentUser ? (
+        {currentUser ? (
           <div className="option" onClick={() => auth.signOut()}>
             SIGN OUT
           </div>
@@ -29,3 +31,9 @@ export default function Header({ currentUser }) {
     </div>
   );
 }
+
+const mSTP = (state) => ({
+  currentUser: state.user.currentUser
+})
+
+export default connect(mSTP)(Header)
