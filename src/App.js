@@ -11,7 +11,6 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-actions";
 
 function App(props) {
-  console.log(props);
 
   // function returns an unsubscribe function, passing to return as clean up callback
   useEffect(() => {

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import sections from "./directory.data";
+import React from "react";
+import { useSelector } from 'react-redux'
+
 import './directory.scss'
 import MenuItem from "../menu-item/menu-item.component";
 export default function Directory() {
-  let [sectionsArr, setSectionsArr] = useState(sections);
+  const sectionsArr = useSelector(state => state.directory)
   return (
     <div className="directory-menu">
-      {sectionsArr.map(({ title, imageUrl, id, size }) => (
-        <MenuItem id={id} title={title.toUpperCase()} imageUrl={imageUrl} size={size}/>
+      {sectionsArr.map(({ title, imageUrl, id, size, linkUrl }) => (
+        <MenuItem id={id} title={title.toUpperCase()} imageUrl={imageUrl} size={size} linkUrl={linkUrl}/>
       ))}
     </div>
   );
