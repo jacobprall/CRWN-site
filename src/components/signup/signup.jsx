@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import FormInput from "../form-input/form-input";
+import FormInput from "../form-input/form-input.component";
 import { CustomButton } from "../custom-button/custom-button";
 
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";

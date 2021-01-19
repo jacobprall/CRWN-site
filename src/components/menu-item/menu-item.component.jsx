@@ -1,24 +1,30 @@
 /* eslint-disable no-restricted-globals */
-import React from 'react'
-import { useHistory } from 'react-router-dom';
-import './menu-item.scss'
-export default function MenuItem({ title, imageUrl, size, linkUrl}) {
+import React from "react";
+import { useHistory } from "react-router-dom";
+import {
+  BackgroundImageContainer,
+  ContentContainer,
+  ContentSubtitle,
+  ContentTitle,
+  MenuItemContainer,
+} from "./menu-item.styles";
+export default function MenuItem({ title, imageUrl, size, linkUrl }) {
   let history = useHistory();
-  const handleClick = () => { 
-    history.push(linkUrl)
-  }
-  
+  const handleClick = () => {
+    history.push(linkUrl);
+  };
+
   return (
-    <div className={`menu-item ${size}`} onClick={handleClick}>
-      <div
+    <MenuItemContainer onClick={handleClick}>
+      <BackgroundImageContainer
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div className="content">
-        <h1 className="title">{title}</h1>
+      <ContentContainer>
+        <ContentTitle>{title}</ContentTitle>
 
-        <span className="subtitle">SHOP NOW</span>
-      </div>
-    </div>
+        <ContentSubtitle>SHOP NOW</ContentSubtitle>
+      </ContentContainer>
+    </MenuItemContainer>
   );
 }

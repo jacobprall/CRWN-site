@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import FormInput from "../../components/form-input/form-input";
+import FormInput from "../../components/form-input/form-input.component";
 import { CustomButton } from "../../components/custom-button/custom-button.jsx";
 import { signInWithGoogle, auth } from "../../firebase/firebase.utils";
-
 
 export default function SignIn() {
   let [email, setEmail] = useState("");
@@ -15,16 +14,10 @@ export default function SignIn() {
       setEmail("");
       setPassword("");
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-    
   };
 
-  const handleChange = (e) => {
-    const { value, name } = e.target;
-    if (name === "email") setEmail(value);
-    else setPassword(value);
-  };
   return (
     <div className="sign-in">
       <h2>I already have an account</h2>
