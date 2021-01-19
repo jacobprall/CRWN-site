@@ -39,6 +39,7 @@ export const BackgroundImageContainer = styled.div`
 
 export const ContentContainer = styled.div`
   height: 90px;
+  width: 90px;
   padding: 0 25px;
   display: flex;
   flex-direction: column;
@@ -48,6 +49,13 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+  transition: opacity 2s linear;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+    transition: transform 2s linear;
+  }
 `;
 
 export const ContentTitle = styled.span`
