@@ -1,11 +1,14 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import CheckoutItem from '../../components/checkout-item/checkout_item.js'
-import './checkout.scss'
-import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
+import React from "react";
+import { useSelector } from "react-redux";
+import CheckoutItem from "../../components/checkout-item/checkout_item.component.jsx";
+import "./checkout.scss";
+import StripeCheckoutButton from "../../components/stripe-button/stripe-button.component";
 export default function CheckoutPage() {
-  const cartItems = useSelector(state => state.cart.cartItems);
-  const total = cartItems.reduce((acc, ele) => acc += ele.quantity * ele.price, 0)
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const total = cartItems.reduce(
+    (acc, ele) => (acc += ele.quantity * ele.price),
+    0
+  );
 
   return (
     <div className="checkout-page">

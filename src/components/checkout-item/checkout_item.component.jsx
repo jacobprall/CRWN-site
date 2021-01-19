@@ -1,5 +1,5 @@
 import React from "react";
-import "./checkout_item.scss";
+import { CheckoutItemContainer } from './checkout-item.styles';
 import { useDispatch } from "react-redux";
 import { removeItem, decrItem, addItem } from "../../redux/cart/cart-actions";
 
@@ -19,7 +19,7 @@ export default function CheckoutItem({ cartItem }) {
   }
 
   return (
-    <div className="checkout-item">
+    <CheckoutItemContainer>
       <div className="image-container">
         <img src={imageUrl} alt="item" />
       </div>
@@ -37,6 +37,6 @@ export default function CheckoutItem({ cartItem }) {
       <div className="remove-button" onClick={handleRemove}>
         &#10005;
       </div>
-    </div>
+    </CheckoutItemContainer>
   );
 }
