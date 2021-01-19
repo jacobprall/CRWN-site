@@ -15,11 +15,14 @@ const invertedButtonStyles = css`
   background-color: white;
   color: black;
   border: 1px solid black;
+  transition: all ease 0.8s;
+  box-shadow: inset 0 0 0 0 #31302b;
 
   &:hover {
     background-color: black;
     color: white;
     border: none;
+    box-shadow: inset 300px 0 0px 0 black;
   }
 `;
 
