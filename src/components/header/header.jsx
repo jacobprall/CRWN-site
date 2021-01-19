@@ -1,5 +1,11 @@
 import React from "react";
-import "./header.scss";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionLink,
+  OptionDiv,
+} from "./header.styles";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
@@ -8,33 +14,33 @@ import CartIcon from '../cart-icon/cart-icon.js'
 import CartDropdown from '../cart-dropdown/cart-dropdown'
 function Header({ currentUser, hidden }) {
   return (
-    <div className="header">
-      <Link className="logo-container" to="/">
+    <HeaderContainer>
+      <LogoContainer to="/">
         <Logo className="logo" />
-      </Link>
-      <div className="options">
-        <Link className="option" to="/shop">
+      </LogoContainer>
+      <OptionsContainer>
+        <OptionLink  to="/shop">
           SHOP
-        </Link>
-        <Link className="option" to="/Contact">
+        </OptionLink>
+        <OptionLink to="/Contact">
           CONTACT
-        </Link>
+        </OptionLink>
         {currentUser ? (
-          <div className="option" onClick={() => auth.signOut()}>
+          <OptionDiv onClick={() => auth.signOut()}>
             SIGN OUT
-          </div>
+          </OptionDiv>
         ) : (
-          <Link className="option" to="/login">
+          <OptionLink to="/login">
             SIGN IN
-          </Link>
+          </OptionLink>
         )}
         <CartIcon />
         {
           hidden ? null : 
           <CartDropdown />
         }
-      </div>
-    </div>
+      </OptionsContainer>
+    </HeaderContainer>
   );
 }
 

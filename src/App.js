@@ -1,7 +1,6 @@
-import "./pages/homepage/homepage.scss";
-import HomePage from "./pages/homepage/homepage-component";
+import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
-import CheckoutPage from './pages/checkout/checkout-page'
+import CheckoutPage from "./pages/checkout/checkout-page";
 import Header from "./components/header/header.jsx";
 import LoginContainer from "./pages/login/login-container.jsx";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -11,7 +10,6 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-actions";
 
 function App(props) {
-
   // function returns an unsubscribe function, passing to return as clean up callback
   useEffect(() => {
     auth.onAuthStateChanged(async (userAuth) => {
@@ -34,7 +32,13 @@ function App(props) {
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
         <Route exact path="/checkout" component={CheckoutPage} />
-        <Route exact path="/login" render={() => props.currentUser ? (<Redirect to="/" />) : <LoginContainer />} />
+        <Route
+          exact
+          path="/login"
+          render={() =>
+            props.currentUser ? <Redirect to="/" /> : <LoginContainer />
+          }
+        />
       </Switch>
     </div>
   );
